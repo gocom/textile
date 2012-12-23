@@ -350,7 +350,6 @@ class Parser
     /**
      * Constructor for an instance of class Textile.
      *
-     * @access public
      * @param  string $doctype  The output document type to target
      * @return void
      **/
@@ -471,7 +470,6 @@ class Parser
      * Call this (if needed) post constructor call to redefine a substitution symbol to
      * be used when parsing a textile document.
      *
-     * @access public
      * @param  string $name  Name of the symbol to assign a new value to.
      * @param  string $value New value for the symbol.
      * @return object $this
@@ -487,7 +485,6 @@ class Parser
     /**
      * getSymbol() returns an array containing the symbol table or the value of the named symbol
      *
-     * @access public
      * @param  string $name  The name of the symbol to access or null if requesting the symbol table
      * @return array|string The symbol table or the requested symbol
      **/
@@ -501,7 +498,6 @@ class Parser
      * Allows client systems to have textile convert relative image paths to
      * absolute (or prefixed) paths.
      *
-     * @access public
      * @param  string $prefix  The string to prefix all relative image paths with
      * @return object $this
      **/
@@ -515,7 +511,6 @@ class Parser
     /**
      * Returns the internal version of this instance of textile.
      *
-     * @access public
      * @return string Version
      **/
     public function getVersion()
@@ -527,7 +522,6 @@ class Parser
     /**
      * Encodes the given text.
      *
-     * @access public
      * @param  string $text The text to be encoded.
      * @return string The encoded text.
      **/
@@ -542,7 +536,6 @@ class Parser
     /**
      * Causes an un-restricted parse of the input textile text to start.
      *
-     * @access public
      * @param  string $text      The input document in textile format
      * @param  string $lite      Optional flag to switch the parser into lite mode.
      * @param  string $encode    Optional flag that causes the unput document to be encoded and returned.
@@ -572,7 +565,6 @@ class Parser
     /**
      * Causes a restricted parse of the input textile text. Use this on any untrusted user input.
      *
-     * @access public
      * @param  string $text      The input document in textile format
      * @param  string $lite      Optional flag to switch the parser into lite mode. Lite mode is the default.
      * @param  string $noimage   Optional flag controlling the conversion of images into HTML <img/> tags. noimage mode is the default.
