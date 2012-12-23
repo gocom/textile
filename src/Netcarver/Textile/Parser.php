@@ -597,8 +597,6 @@ class Parser
 
     /**
      * Performs common parse actions.
-     *
-     * @internal
      **/
     protected function textileCommon($text, $lite)
     {
@@ -624,8 +622,6 @@ class Parser
 
     /**
      * If needed, prepares the glyph find-and-replace patterns from the internal symbol table
-     *
-     * @internal
      **/
     protected function prepGlyphs()
     {
@@ -699,8 +695,6 @@ class Parser
      * Prepares the transient internal state of the textile parser in preparation for
      * parsing a new document.
      *
-     * @internal
-     *
      * @param  bool|string $lite    Set to true/non-empty to parse in lite mode. Default ''.
      * @param  bool|string $noimage Disallow images in the generated docuemnt
      * @param  string      $rel     A relationship to be applied to all links. eg. 'nofollow'
@@ -724,9 +718,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function cleanAttribs($in)
     {
         $tmp    = $in;
@@ -756,8 +747,6 @@ class Parser
     /**
      * Helper method that creates a new instance of \Netcarver\Textile\Tag
      *
-     * @internal
-     *
      * @param  string $name        The type of tag to create. eg. newTag('p',...) for a paragraph tag.
      * @param         $atts        The textile attributes to apply to the tag
      * @param  bool   $selfclosing Determines if the tag should be selfclosing. Default: true
@@ -771,8 +760,6 @@ class Parser
 
     /**
      * Parses textile attributes
-     *
-     * @internal
      *
      * @param   string $in         The textile attribute string to be parsed
      * @param   string $element    Focus the routine to interpret the attributes as applying to a specific HTML tag
@@ -796,9 +783,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function parseAttribsToArray($in, $element = "", $include_id = 1, $autoclass = '')
     {
         $style = '';
@@ -959,8 +943,6 @@ class Parser
 
     /**
      * Checks whether the text has text not already enclosed by a block tag
-     *
-     * @internal
      **/
     protected function hasRawText($text)
     {
@@ -973,8 +955,6 @@ class Parser
     /**
      * Replaces a textile table structure with its HTML version
      *
-     * @internal
-     *
      * @param  string $text A block of textile
      * @return string Text with tables replaced with HTML tables
      **/
@@ -985,9 +965,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fTable($matches)
     {
         $tatts = $this->parseAttribs($matches[1], 'table');
@@ -1088,8 +1065,6 @@ class Parser
     /**
      * Parses redcloth-style definition lists and generates corresponding HTML definition lists from them
      *
-     * @internal
-     *
      * @param  string $text The input textile text to be searched for redcloth-style definition lists
      * @return string The text with tokens inserted at the points definition lists were found
      **/
@@ -1099,9 +1074,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fRedclothList($m)
     {
         $in = $m[0];
@@ -1155,8 +1127,6 @@ class Parser
      * The lists are stashed in a cache and a token representing that list is injected into the document, overwriting the textile
      * source for the list.
      *
-     * @internal
-     *
      * @param  string $text  Input textile source to parse for lists
      * @return string Text with lists replaced with tokens
      **/
@@ -1166,9 +1136,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fTextileList($m)
     {
         $text = preg_split('/\n(?=[*#;:])/m', $m[0]);
@@ -1258,8 +1225,6 @@ class Parser
     /**
      * Determine the list type from the textile input symbol
      *
-     * @internal
-     *
      * @param  string $in Textile input containing possible list marker
      * @return string The type of list (missing the final 'l' character)
      **/
@@ -1274,18 +1239,12 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function doTagBr($tag, $in)
     {
         return preg_replace_callback('@<('.preg_quote($tag).')([^>]*?)>(.*)(</\1>)@s', array(&$this, 'fBr'), $in);
     }
 
 
-    /**
-     * @internal
-     **/
     protected function doPBr($in)
     {
         return preg_replace_callback('@<(p)([^>]*?)>(.*)(</\1>)@s', array(&$this, 'fPBr'), $in);
@@ -1295,7 +1254,6 @@ class Parser
     /**
      * Less restrictive version of fBr() ... used only in paragraphs where the next
      * row may start with a smiley or perhaps something like '#8 bolt...' or '*** stars...'
-     * @internal
      **/
     protected function fPBr($m)
     {
@@ -1304,9 +1262,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fBr($m)
     {
         $content = preg_replace("@(.+)(?<!<br>|<br />)\n(?![#*;:\s|])@", '$1<br />', $m[3]);
@@ -1317,8 +1272,6 @@ class Parser
     /**
      * Splits the input textile text into blocks on double line-break boundaries and then
      * processes each block.
-     *
-     * @internal
      *
      * @param  string $text Textile source text
      * @return string Input text with blocks processed
@@ -1398,9 +1351,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fBlock($m)
     {
         list(, $tag, $att, $ext, $cite, $content) = $m;
@@ -1489,9 +1439,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function formatFootnote($marker, $atts='', $anchor=true)
     {
         $pattern = ($anchor) ? $this->symbols['fn_foot_pattern'] : $this->symbols['fn_ref_pattern'];
@@ -1499,9 +1446,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function replaceMarkers($text, $replacements)
     {
         if (!empty($replacements)) {
@@ -1513,9 +1457,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function getHTMLComments($text)
     {
         $text = preg_replace_callback("/
@@ -1527,9 +1468,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fParseHTMLComments($m)
     {
         list(, $content) = $m;
@@ -1543,9 +1481,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function graf($text)
     {
         // Handle normal paragraph text
@@ -1587,8 +1522,6 @@ class Parser
     /**
      * Replaces textile spans with their equivalent HTML inline tags.
      *
-     * @internal
-     *
      * @param  string $text The textile document to perform the replacements in.
      * @return string       The textile document with spans replaced by their HTML inline equivalents
      **/
@@ -1618,9 +1551,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fSpan($m)
     {
         list(, $pre, $tag, $atts, $cite, $content, $end, $tail) = $m;
@@ -1644,9 +1574,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function storeTags($opentag,$closetag='')
     {
         $key = ($this->tag_index++);
@@ -1661,9 +1588,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function retrieveTags($text)
     {
         $text = preg_replace_callback('/textileopentag([\d]{10}z) /', array(&$this, 'fRetrieveOpenTags'), $text);
@@ -1672,27 +1596,18 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fRetrieveOpenTags($m)
     {
         return $this->tagCache[$m[1]]['open'];
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fRetrieveCloseTags($m)
     {
         return $this->tagCache[$m[1]]['close'];
     }
 
 
-    /**
-     * @internal
-     **/
     protected function placeNoteLists($text)
     {
         extract($this->regex_snippets);
@@ -1724,9 +1639,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fNoteLists($m)
     {
         list(, $att, $start_char, $g_links, $extras) = $m;
@@ -1777,9 +1689,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function makeBackrefLink(&$info, $g_links, $i)
     {
         $link    = '';
@@ -1811,9 +1720,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fParseNoteDefs($m)
     {
         list(, $label, $link, $att, $content) = $m;
@@ -1835,9 +1741,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function noteRefs($text)
     {
         $text = preg_replace_callback("/
@@ -1852,9 +1755,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fParseNoteRefs($m)
     {
         //   By the time this function is called, all the defs will have been processed
@@ -1899,7 +1799,6 @@ class Parser
      * Parse URI pulls a URI-like string apart into component parts
      * Regex taken from the RFC at http://tools.ietf.org/html/rfc3986#appendix-B
      *
-     * @internal
      *
      * @param  string  $uri     The string to pick apart (if possible)
      * @param  array   $m       Reference to an array to receive the parts the URI
@@ -1921,9 +1820,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function addPart(&$mask, $name, &$parts)
     {
         return (in_array($name, $mask) && isset($parts[$name]) && '' !== $parts[$name]);
@@ -1933,8 +1829,6 @@ class Parser
     /**
      * Rebuild a URI from parsed parts and a mask.
      * Algorithm based on example from http://tools.ietf.org/html/rfc3986#section-5.3
-     *
-     * @internal
      *
      * @param  array  $parts  Full array of URI parts
      * @param  string $mask   Comma separated list of URI parts to include in the rebuilt URI
@@ -1986,8 +1880,6 @@ class Parser
     /**
      * Initiates recognition and conversion of links in the source document.
      *
-     * @internal
-     *
      * @param  string $text  The source textile text
      * @return string        The document with tokens inserted representing the links
      **/
@@ -2008,9 +1900,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fLink($m)
     {
         list(, $pre, $atts, $text, $title, $url, $slash, $post, $tail) = $m;
@@ -2081,8 +1970,6 @@ class Parser
       *
       * This parse happens before the link parsing takes place.
       *
-      * @internal
-      *
       * @param  string $text textile document
       * @return string The textile document with any URI aliases/refs removed.
       **/
@@ -2098,9 +1985,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function refs($m)
     {
         list(, $flag, $url) = $m;
@@ -2112,9 +1996,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function shelveURL($text)
     {
         if ('' === $text) {
@@ -2127,18 +2008,12 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function retrieveURLs($text)
     {
         return preg_replace_callback('/urlref:(\w{32}z)/', array(&$this, "retrieveURL"), $text);
     }
 
 
-    /**
-     * @internal
-     **/
     protected function retrieveURL($m)
     {
         $ref = $m[1];
@@ -2155,9 +2030,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function relURL($url)
     {
         $parts = @parse_url(urldecode($url));
@@ -2173,9 +2045,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function isRelURL($url)
     {
         $parts = @parse_url($url);
@@ -2186,8 +2055,6 @@ class Parser
     /**
      * Parses the input textile document for images and generates img HTML tags for each one found, caching the
      * generated img tag internally and replacing the textile image with a token to the cached tag.
-     *
-     * @internal
      *
      * @param  string $text Textile source text
      * @return string The input document with images pulled out and replaced with tokens
@@ -2210,9 +2077,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fImage($m)
     {
         $extras = '';
@@ -2255,9 +2119,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function code($text)
     {
         $text = $this->doSpecial($text, '<code>', '</code>', 'fCode');
@@ -2267,9 +2128,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fCode($m)
     {
         list(, $before, $text, $after) = array_pad($m, 4, '');
@@ -2277,9 +2135,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fPre($m)
     {
         list(, $before, $text, $after) = array_pad($m, 4, '');
@@ -2287,9 +2142,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function shelve($val)
     {
         $i = uniqid(rand()).'z';
@@ -2298,9 +2150,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function retrieve($text)
     {
         if (is_array($this->shelf)) {
@@ -2317,8 +2166,6 @@ class Parser
     /**
      * Cleans up the textile input text, removing BOM and unifying line endings etc.
      *
-     * @internal
-     *
      * @param  string $text Input textile text
      * @return string Cleaned version of the input
      **/
@@ -2333,18 +2180,12 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function doSpecial($text, $start, $end, $method='fSpecial')
     {
         return preg_replace_callback('/(^|\s|[|[({>])'.preg_quote($start, '/').'(.*?)'.preg_quote($end, '/').'(\s|$|[\])}|])?/ms', array(&$this, $method), $text);
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fSpecial($m)
     {
         // A special block like notextile or code
@@ -2353,9 +2194,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function noTextile($text)
     {
          $text = $this->doSpecial($text, '<notextile>', '</notextile>', 'fTextile');
@@ -2363,9 +2201,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function fTextile($m)
     {
         list(, $before, $notextile, $after) = array_pad($m, 4, '');
@@ -2373,18 +2208,12 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function footnoteRefs($text)
     {
         return preg_replace_callback('/(?<=\S)\[(\d+)(!?)\]\s?/U', array(&$this, 'footnoteID'), $text);
     }
 
 
-    /**
-     * @internal
-     **/
     protected function footnoteID($m)
     {
         list(, $id, $nolink) = array_pad($m, 3, '');
@@ -2407,8 +2236,6 @@ class Parser
      * Perfoms typographical glyph replacements within the input textile text.
      * The source text is split across HTML-like tags in order to avoid attempting glyph
      * replacements within tags.
-     *
-     * @internal
      *
      * @param  string $text Input textile source text
      * @return string
@@ -2436,18 +2263,12 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function replaceGlyphs($text)
     {
         return preg_replace('/glyph:([^<]+)/', '$1', $text);
     }
 
 
-    /**
-     * @internal
-     **/
     protected function hAlign($in)
     {
         $vals = array(
@@ -2462,9 +2283,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function vAlign($in)
     {
         $vals = array(
@@ -2475,18 +2293,12 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function encodeHigh($text, $charset = "UTF-8")
     {
         return ($this->mb) ? mb_encode_numericentity($text, $this->cmap, $charset) : htmlentities($text, ENT_NOQUOTES, $charset);
     }
 
 
-    /**
-     * @internal
-     **/
     protected function decodeHigh($text, $charset = "UTF-8")
     {
         $text = (ctype_digit($text)) ? "&#$text;" : "&$text;" ;
@@ -2494,9 +2306,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function encodeHTML($str, $quotes=1)
     {
         $a = array(
@@ -2515,9 +2324,6 @@ class Parser
     }
 
 
-    /**
-     * @internal
-     **/
     protected function rEncodeHTML($str, $quotes=1)
     {
         // In restricted mode, all input but quotes has already been escaped
