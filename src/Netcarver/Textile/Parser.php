@@ -2306,6 +2306,18 @@ class Parser
     }
 
 
+    /**
+     * Convert special characters to HTML entities.
+     *
+     * This method's functinality is identical to PHP's own
+     * htmlspecialchars(). In Textile this is used for sanitizing
+     * the input.
+     *
+     * @param  string $str    The string to encode
+     * @param  bool   $quotes Encode quotes
+     * @return string Encoded string
+     * @see    htmlspecialchars()
+     **/
     protected function encodeHTML($str, $quotes=1)
     {
         $a = array(
@@ -2324,6 +2336,18 @@ class Parser
     }
 
 
+    /**
+     * Convert special characters to HTML entities.
+     *
+     * This is identical to encodeHTML(), but takes restricted
+     * mode into account. When in restricted mode, only encodes
+     * quotes no matter what the $quotes is set to.
+     *
+     * @param  string $str    The string to encode
+     * @param  bool   $quotes Encode quotes
+     * @return string Encoded string
+     * @see    Parser::encodeHTML()
+     **/
     protected function rEncodeHTML($str, $quotes=1)
     {
         // In restricted mode, all input but quotes has already been escaped
