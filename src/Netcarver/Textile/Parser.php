@@ -467,7 +467,9 @@ class Parser
 
 
     /**
-     * Call this (if needed) post constructor call to redefine a substitution symbol to
+     * Defines a substitution symbol.
+     *
+     * Call this you need to redefine a substitution symbol to
      * be used when parsing a textile document.
      *
      * @param  string $name  Name of the symbol to assign a new value to.
@@ -483,7 +485,10 @@ class Parser
 
 
     /**
-     * getSymbol() returns an array containing the symbol table or the value of the named symbol
+     * Gets a symbol definitions.
+     *
+     * This method can be used to get a symbol definition, or an
+     * array containg the full symbol table.
      *
      * @param  string $name  The name of the symbol to access or null if requesting the symbol table
      * @return array|string The symbol table or the requested symbol
@@ -495,8 +500,12 @@ class Parser
 
 
     /**
+     * Sets base image directory path.
+     *
+     * This is used when Textile is supplied with a relative image path.
      * Allows client systems to have textile convert relative image paths to
-     * absolute (or prefixed) paths.
+     * absolute or prefixed paths. This method is used to set that base path,
+     * usually a absolute HTTP address pointing to a directory.
      *
      * @param  string $prefix  The string to prefix all relative image paths with
      * @return object $this
@@ -509,9 +518,11 @@ class Parser
 
 
     /**
-     * Returns the internal version of this instance of textile.
+     * Gets the version of Textile.
      *
-     * @return string Version
+     * This method returns the internal version of this instance of textile.
+     *
+     * @return string The version number
      **/
     public function getVersion()
     {
@@ -586,7 +597,7 @@ class Parser
 
 
     /**
-     * Perform common parse actions
+     * Performs common parse actions.
      *
      * @internal
      **/
