@@ -489,7 +489,7 @@ class Parser
      * This method can be used to get a symbol definition, or an
      * array containg the full symbol table.
      *
-     * @param  string $name  The name of the symbol to access or null if requesting the symbol table
+     * @param  string|null  $name The name of the symbol, or NULL if requesting the symbol table
      * @return array|string The symbol table or the requested symbol
      **/
     public function getSymbol($name=null)
