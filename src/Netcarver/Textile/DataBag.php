@@ -35,13 +35,26 @@
 namespace Netcarver\Textile;
 
 /**
- * Class to allow simple assignment to members of the internal data array
+ * Stores data in a bag.
+ *
+ * This class to allows simple assignment to members of
+ * the internal data array.
  **/
 class DataBag
 {
+    /**
+     * Stores a data array.
+     *
+     * @var array
+     **/
     protected $data;
 
 
+    /**
+     * Constructor.
+     *
+     * @param array $initial_data Initial data array added to the bag
+     **/
     public function __construct($initial_data)
     {
         $this->data = (is_array($initial_data)) ? $initial_data : array();
