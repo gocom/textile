@@ -35,19 +35,39 @@
 namespace Netcarver\Textile;
 
 /**
- * Class to allow contruction of HTML tags on conversion of an object to a string
+ * Constructs a HTML tag.
  *
- * Example usage...
+ * This class allows constructing objects to HTML tags. Each
+ * set method will be used a tag attribute.
  *
- * $img = new Tag('img')->class('big blue')->src('images/elephant.jpg');
- * echo $img;
+ * @example
+ * echo (string) new Tag('img')->class('big blue')->src('images/elephant.jpg');
  **/
 class Tag extends \Netcarver\Textile\DataBag
 {
+    /**
+     * Stores the tag name.
+     *
+     * @var string
+     **/
     protected $tag;
+
+    /**
+     * Creates a self-closing tag.
+     *
+     * @var bool
+     **/
     protected $selfclose;
 
-
+    /**
+     * Constructor.
+     *
+     * @param string $name        The tag name
+     * @param array  $attribs     An array attributes
+     * @param bool   $selfclosing If TRUE, creates a self-closing tag
+     * @example
+     * echo (string) new Tag('a', array('href' => '#'), false);
+     **/
     public function __construct($name, $attribs=array(), $selfclosing=true)
     {
         parent::__construct($attribs);
@@ -56,6 +76,11 @@ class Tag extends \Netcarver\Textile\DataBag
     }
 
 
+    /**
+     * Constructs a tag from the object.
+     *
+     * @return string HTML tag
+     **/
     public function __tostring()
     {
         $attribs = '';
