@@ -1,7 +1,5 @@
 <?php
 
-namespace Netcarver\Textile;
-
 /**
  * Example: get XHTML from a given Textile-markup string ($string)
  *
@@ -325,6 +323,8 @@ Ordered List Start & Continuation:
         #_ Item 7
         # Item 8
 */
+
+namespace Netcarver\Textile;
 
 class Parser
 {

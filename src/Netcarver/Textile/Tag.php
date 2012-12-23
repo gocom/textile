@@ -1,7 +1,5 @@
 <?php
 
-namespace Netcarver\Textile;
-
 /**
  * Copyright (c) 2012 Netcarver http://github.com/netcarver
  * _____________
@@ -33,6 +31,8 @@ namespace Netcarver\Textile;
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  **/
+
+namespace Netcarver\Textile;
 
 /**
  * Class to allow contruction of HTML tags on conversion of an object to a string

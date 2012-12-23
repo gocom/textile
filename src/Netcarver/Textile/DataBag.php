@@ -1,7 +1,5 @@
 <?php
 
-namespace Netcarver\Textile;
-
 /**
  * Copyright (c) 2012 Netcarver http://github.com/netcarver
  * _____________
@@ -34,6 +32,7 @@ namespace Netcarver\Textile;
  * POSSIBILITY OF SUCH DAMAGE.
  **/
 
+namespace Netcarver\Textile;
 
 /**
  * Class to allow simple assignment to members of the internal data array
