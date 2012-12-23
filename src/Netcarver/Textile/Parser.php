@@ -351,7 +351,6 @@ class Parser
      * Constructor for an instance of class Textile.
      *
      * @param  string $doctype  The output document type to target
-     * @return void
      **/
     public function __construct($doctype = 'xhtml')
     {
@@ -627,7 +626,6 @@ class Parser
      * If needed, prepares the glyph find-and-replace patterns from the internal symbol table
      *
      * @internal
-     * @return void
      **/
     protected function prepGlyphs()
     {
@@ -706,7 +704,6 @@ class Parser
      * @param  bool|string $lite    Set to true/non-empty to parse in lite mode. Default ''.
      * @param  bool|string $noimage Disallow images in the generated docuemnt
      * @param  string      $rel     A relationship to be applied to all links. eg. 'nofollow'
-     * @return void
      **/
     protected function prepare($lite, $noimage, $rel)
     {
