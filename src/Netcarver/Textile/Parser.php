@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Example: get XHTML from a given Textile-markup string ($string)
- *
- * $textile = new Textile();
- * echo $textile->textileThis($string);
- *
- */
-
 /*
 _____________
 T E X T I L E
