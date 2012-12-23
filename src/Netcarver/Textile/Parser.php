@@ -1,7 +1,7 @@
 <?php
 
 /**
- * T E X T I L E - A Humane Web Text Generator
+ * Textile - A Humane Web Text Generator
  *
  * Copyright (c) 2003-2004, Dean Allen <dean@textism.com>
  * All rights reserved.
@@ -14,9 +14,6 @@
  * Additions and fixes Copyright (c) 2010-12 Netcarver         http://github.com/netcarver
  * Additions and fixes Copyright (c) 2011    Jeff Soo          http://ipsedixit.net
  * Additions and fixes Copyright (c) 2012    Robert Wetzlmayr  http://wetzlmayr.com/
- *
- * _____________
- * L I C E N S E
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
