@@ -877,7 +877,7 @@ class Parser
      *
      * @param  bool   $lite    Controls lite mode
      * @param  bool   $noimage Disallow images
-     * @param  string $rel     A relationship attribute to be applied to links
+     * @param  string $rel     A relationship attribute applied to links
      */
     protected function prepare($lite, $noimage, $rel)
     {
