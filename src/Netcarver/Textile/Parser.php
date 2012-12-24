@@ -703,15 +703,15 @@ class Parser
 
 
     /**
-     * Causes an un-restricted parse of the input textile text to start.
+     * Parses the given Textile input in un-restricted mode.
      *
-     * @param  string $text      The input document in textile format
-     * @param  string $lite      Optional flag to switch the parser into lite mode.
-     * @param  string $encode    Optional flag that causes the unput document to be encoded and returned.
-     * @param  string $noimage   Optional flag controlling the conversion of images into HTML <img/> tags.
-     * @param  string $strict    Optional flag controlling the application of whitespace cleanup prior to parsing the text.
-     * @param  string $rel       Relationship to apply to all generated links.
-     * @return string The text from the input document
+     * @param  string $text    The Textile input to parse
+     * @param  bool   $lite    Switch to lite mode
+     * @param  bool   $encode  Encode input and return
+     * @param  bool   $noimage Disables images
+     * @param  bool   $strict  FALSE to strip whitespace before parsing
+     * @param  string $rel     Relationship attribute applied to generated links
+     * @return string Parsed $text
      */
     public function textileThis($text, $lite = '', $encode = '', $noimage = '', $strict = '', $rel = '')
     {
