@@ -39,6 +39,10 @@ namespace Netcarver\Textile;
  *
  * This class to allows simple assignment to members of
  * the internal data array.
+ *
+ * @example
+ * $databag = new DataBag();
+ * $databag->param1(value1)->param2(value2);
  **/
 class DataBag
 {
