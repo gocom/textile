@@ -765,7 +765,13 @@ class Parser
 
 
     /**
-     * Performs common parse actions.
+     * Parses Textile syntax.
+     *
+     * This method performs common parse actions.
+     *
+     * @param  string $text The input to parses
+     * @param  bool   $lite Controls lite mode
+     * @return string Parsed input
      */
     protected function textileCommon($text, $lite)
     {
