@@ -30,7 +30,7 @@
  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- **/
+ */
 
 namespace Netcarver\Textile;
 
@@ -42,21 +42,21 @@ namespace Netcarver\Textile;
  *
  * @example
  * echo (string) new Tag('img')->class('big blue')->src('images/elephant.jpg');
- **/
+ */
 class Tag extends \Netcarver\Textile\DataBag
 {
     /**
      * Stores the tag name.
      *
      * @var string
-     **/
+     */
     protected $tag;
 
     /**
      * Creates a self-closing tag.
      *
      * @var bool
-     **/
+     */
     protected $selfclose;
 
     /**
@@ -67,7 +67,7 @@ class Tag extends \Netcarver\Textile\DataBag
      * @param bool   $selfclosing If TRUE, creates a self-closing tag
      * @example
      * echo (string) new Tag('a', array('href' => '#'), false);
-     **/
+     */
     public function __construct($name, $attribs=array(), $selfclosing=true)
     {
         parent::__construct($attribs);
@@ -75,12 +75,11 @@ class Tag extends \Netcarver\Textile\DataBag
         $this->selfclose = $selfclosing;
     }
 
-
     /**
      * Constructs a tag from the object.
      *
      * @return string HTML tag
-     **/
+     */
     public function __tostring()
     {
         $attribs = '';

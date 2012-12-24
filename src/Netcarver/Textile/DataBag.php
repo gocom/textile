@@ -30,7 +30,7 @@
  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- **/
+ */
 
 namespace Netcarver\Textile;
 
@@ -43,14 +43,14 @@ namespace Netcarver\Textile;
  * @example
  * $databag = new DataBag();
  * $databag->key1('value1')->key2('value2');
- **/
+ */
 class DataBag
 {
     /**
      * Stores a data array.
      *
      * @var array
-     **/
+     */
     protected $data;
 
 
@@ -58,7 +58,7 @@ class DataBag
      * Constructor.
      *
      * @param array $initial_data Initial data array added to the bag
-     **/
+     */
     public function __construct($initial_data)
     {
         $this->data = (is_array($initial_data)) ? $initial_data : array();
@@ -81,7 +81,7 @@ class DataBag
      * $databag->key1('value1');
      * $databag->key2('', true);
      * $databag->key3('valu2');
-     **/
+     */
     public function __call($k, $params)
     {
         $allow_empty = isset($params[1]) && is_bool($params[1]) ? $params[1] : false;
