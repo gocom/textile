@@ -348,9 +348,9 @@ class Parser
 
 
     /**
-     * Constructor for an instance of class Textile.
+     * Constructor.
      *
-     * @param  string $doctype  The output document type to target
+     * @param string $doctype The output document type, either 'xhtml' or 'html5'
      **/
     public function __construct($doctype = 'xhtml')
     {
