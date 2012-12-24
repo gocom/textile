@@ -870,12 +870,14 @@ class Parser
 
 
     /**
-     * Prepares the transient internal state of the textile parser in preparation for
-     * parsing a new document.
+     * Prepares the parser for parsing.
      *
-     * @param  bool|string $lite    Set to true/non-empty to parse in lite mode. Default ''.
-     * @param  bool|string $noimage Disallow images in the generated docuemnt
-     * @param  string      $rel     A relationship to be applied to all links. eg. 'nofollow'
+     * This method prepares the transient internal state of
+     * Textile parser in preparation for parsing a new document.
+     *
+     * @param  bool   $lite    Controls lite mode
+     * @param  bool   $noimage Disallow images
+     * @param  string $rel     A relationship attribute to be applied to links
      */
     protected function prepare($lite, $noimage, $rel)
     {
