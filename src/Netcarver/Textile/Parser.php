@@ -796,7 +796,10 @@ class Parser
 
 
     /**
-     * If needed, prepares the glyph find-and-replace patterns from the internal symbol table
+     * Prepares the glyph patterns from the symbol table.
+     *
+     * @see Parser::setSymbol()
+     * @see Parser::getSymbol()
      */
     protected function prepGlyphs()
     {
