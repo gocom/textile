@@ -897,7 +897,21 @@ class Parser
         $this->prepGlyphs();
     }
 
-
+    /**
+     * Cleans a HTML attribute value.
+     *
+     * This method checks for presence of URL encoding in the value.
+     * If the number encoded characters exceeds the thereshold,
+     * the input is discarded. Otherwise the encoded
+     * instances are decoded.
+     *
+     * This method also strips any ", ' and = characters
+     * from the given value. This method does not guarantee
+     * valid HTML or full sanitization.
+     *
+     * @param  string $in The input string
+     * @return string Cleaned string
+     */
     protected function cleanAttribs($in)
     {
         $tmp    = $in;
