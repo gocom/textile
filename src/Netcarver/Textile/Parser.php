@@ -2249,7 +2249,7 @@ class Parser
      * contain scheme and hostname.
      *
      * @param  string $url The URL
-     * @return bool TRUE if relative, FALSE otherwise
+     * @return bool   TRUE if relative, FALSE otherwise
      */
     protected function isRelURL($url)
     {
