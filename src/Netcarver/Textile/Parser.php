@@ -316,34 +316,193 @@ namespace Netcarver\Textile;
 
 class Parser
 {
+    /**
+     * Version number.
+     *
+     * @var string
+     **/
     protected $ver = '3.5.0';
 
+    /**
+     * Pattern for horizontal align.
+     *
+     * @var string
+     **/
     protected $hlgn;
+
+    /**
+     * Pattern for vertical align.
+     *
+     * @var string
+     **/
     protected $vlgn;
+
+    /**
+     * Pattern for HTML classes and IDs.
+     *
+     * @var string
+     **/
     protected $clas;
+
+    /**
+     * Pattern for language attribute.
+     *
+     * @var string
+     **/
     protected $lnge;
+
+    /**
+     * Pattern for style attribute.
+     *
+     * @var string
+     **/
     protected $styl;
+
+    /**
+     * ?
+     *
+     * @var string
+     **/
     protected $cspn;
+
+    /**
+     * ?
+     *
+     * @var string
+     **/
     protected $rspn;
+
+    /**
+     * ?
+     *
+     * @var string
+     **/
     protected $a;
+
+    /**
+     * ?
+     *
+     * @var string
+     **/
     protected $s;
+
+    /**
+     * ?
+     *
+     * @var string
+     **/
     protected $c;
+
+    /**
+     * Pattern for punctation.
+     *
+     * @var string
+     **/
     protected $pnct;
+
+    /**
+     * HTML rel attribute used for links.
+     *
+     * @var string
+     **/
     protected $rel;
+
+    /**
+     * Array of footnotes
+     *
+     * @var array
+     **/
     protected $fn;
 
+    /**
+     * ?
+     *
+     * @var array
+     **/
     protected $shelf = array();
+
+    /**
+     * Restricted mode.
+     *
+     * @var bool
+     **/
     protected $restricted = false;
+
+    /**
+     * Disallow images.
+     *
+     * @var bool
+     **/
     protected $noimage = false;
+
+    /**
+     * Lite mode.
+     *
+     * @var bool
+     **/
     protected $lite = false;
+
+    /**
+     * Accepted link protocols.
+     *
+     * @var array
+     **/
     protected $url_schemes = array();
+
+    /**
+     * ?
+     *
+     * @var null|array
+     **/
     protected $glyph_search  = null;
+
+    /**
+     * ?
+     *
+     * @var null|array
+     **/
     protected $glyph_replace = null;
+
+    /**
+     * ?
+     *
+     * @var bool
+     **/
     protected $rebuild_glyphs = true;
+
+    /**
+     * Relative image path.
+     *
+     * @var string
+     **/
     protected $relativeImagePrefix = '';
+
+    /**
+     * Maximum nesting level for inline elements.
+     *
+     * @var int
+     **/
     protected $max_span_depth = 5;
+
+    /**
+     * Server document root.
+     *
+     * @var string
+     **/
     protected $doc_root;
+
+    /**
+     * Target document type.
+     *
+     * @var string
+     **/
     protected $doctype;
+
+    /**
+     * Substitution symbols.
+     *
+     * @var array
+     **/
     protected $symbols;
 
 
