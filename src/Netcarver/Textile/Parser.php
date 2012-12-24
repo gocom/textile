@@ -2242,6 +2242,15 @@ class Parser
     }
 
 
+    /**
+     * Checks if an URL is relative.
+     *
+     * The given URL is considered relative if it doesn't
+     * contain scheme and hostname.
+     *
+     * @param  string $url The URL
+     * @return bool TRUE if relative, FALSE otherwise
+     */
     protected function isRelURL($url)
     {
         $parts = @parse_url($url);
