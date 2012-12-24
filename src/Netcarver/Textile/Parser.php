@@ -712,6 +712,7 @@ class Parser
      * @param  bool   $strict  FALSE to strip whitespace before parsing
      * @param  string $rel     Relationship attribute applied to generated links
      * @return string Parsed $text
+     * @see    Parser::textileRestricted()
      */
     public function textileThis($text, $lite = '', $encode = '', $noimage = '', $strict = '', $rel = '')
     {
@@ -732,13 +733,22 @@ class Parser
 
 
     /**
-     * Causes a restricted parse of the input textile text. Use this on any untrusted user input.
+     * Parses the given Textile input in restricted mode.
      *
-     * @param  string $text      The input document in textile format
-     * @param  string $lite      Optional flag to switch the parser into lite mode. Lite mode is the default.
-     * @param  string $noimage   Optional flag controlling the conversion of images into HTML <img/> tags. noimage mode is the default.
-     * @param  string $rel       Relationship to apply to all generated links. 'nofollow' is the default
-     * @return string The text from the input document
+     * This method should be used for any untrusted user input,
+     * including comments or forum posts.
+     *
+     * This method escapes any raw HTML input, links only whitelisted URL
+     * schemes and by default also prevents the use of images and
+     * extra Textile formatting, accepting only paragraphs
+     * and blockquotes as valid block tags.
+     *
+     * @param  string $text    The Textile input to parse
+     * @param  bool   $lite    Controls lite mode, allowing extra formatting
+     * @param  bool   $noimage Allow images
+     * @param  string $rel     Relationship attribute applied to generated links
+     * @return string Parsed $text
+     * @see    Parser::textileThis()
      */
     public function textileRestricted($text, $lite = 1, $noimage = 1, $rel = 'nofollow')
     {
