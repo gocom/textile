@@ -42,7 +42,7 @@ namespace Netcarver\Textile;
  *
  * @example
  * $databag = new DataBag();
- * $databag->param1(value1)->param2(value2);
+ * $databag->key1('value1')->key2('value2');
  **/
 class DataBag
 {
@@ -66,16 +66,21 @@ class DataBag
 
 
     /**
-     * Allows setting of an element in the $data array. eg...
+     * Adds a value to the bag.
      *
-     * $bag->key(value);
+     * This method accepts two arguments: $value is the value
+     * assigned to the called method key, and $allow_empty is used
+     * to disable empty filtering. By default empty values are
+     * discarded.
      *
-     * ...sets $bag's $data['key'] to $value provided $value is not empty.
-     * The set can be made forced by following $value with true...
-     *
-     * $bag->key(value, true);
-     *
-     * Would force the value into the data array even if it were empty.
+     * @param  string $k      The key for the value
+     * @param  array $params  Parameters consisting of 'value' and 'allow_empty'
+     * @return DataBag This is chainable
+     * @example
+     * $databag = new DataBag();
+     * $databag->key1('value1');
+     * $databag->key2('', true);
+     * $databag->key3('valu2');
      **/
     public function __call($k, $params)
     {
