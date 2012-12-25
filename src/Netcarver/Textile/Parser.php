@@ -1993,13 +1993,15 @@ class Parser
 
 
     /**
-     * Parse URI pulls a URI-like string apart into component parts
-     * Regex taken from the RFC at http://tools.ietf.org/html/rfc3986#appendix-B
+     * Parses URI into component parts.
      *
+     * This method splits a URI-like string apart into component parts, while
+     * also providing validation.
      *
-     * @param  string  $uri     The string to pick apart (if possible)
-     * @param  array   $m       Reference to an array to receive the parts the URI
-     * @return bool             Match/nomatch of the URI pattern.
+     * @param  string $uri The string to pick apart (if possible)
+     * @param  array  $m   Reference to an array the URI component parts are assigned to
+     * @return bool   TRUE if the string validates as a URI
+     * @link   http://tools.ietf.org/html/rfc3986#appendix-B
      */
     protected function parseURI($uri, &$m)
     {
