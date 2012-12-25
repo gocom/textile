@@ -691,8 +691,8 @@ class Parser
     /**
      * Encodes the given text.
      *
-     * @param  string $text The text to be encoded.
-     * @return string The encoded text.
+     * @param  string $text The text to be encoded
+     * @return string The encoded text
      */
     public function textileEncode($text)
     {
