@@ -1465,10 +1465,10 @@ class Parser
 
 
     /**
-     * Determine the list type from the textile input symbol
+     * Determines the list type from the textile input symbol.
      *
-     * @param  string $in Textile input containing possible list marker
-     * @return string The type of list (missing the final 'l' character)
+     * @param  string $in Textile input containing the possible list marker
+     * @return string Either 'd', 'o' 'u'
      */
     protected function liType($in)
     {
