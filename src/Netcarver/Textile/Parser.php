@@ -1164,10 +1164,10 @@ class Parser
 
 
     /**
-     * Converts textile table structures into HTML.
+     * Parses textile table structures into HTML.
      *
      * @param  string $text The textile input
-     * @return string The text with tables replaced with HTML tables
+     * @return string The parsed text
      */
     protected function tables($text)
     {
@@ -1284,10 +1284,10 @@ class Parser
 
 
     /**
-     * Parses redcloth-style definition lists and generates corresponding HTML definition lists from them
+     * Parses RedCloth-style definition lists to HTML.
      *
-     * @param  string $text The input textile text to be searched for redcloth-style definition lists
-     * @return string The text with tokens inserted at the points definition lists were found
+     * @param  string $text The textile input
+     * @return string The parsed text
      */
     protected function redclothLists($text)
     {
@@ -1295,6 +1295,16 @@ class Parser
     }
 
 
+    /**
+     * Constructs a HTML definition list from a RedCloth-style definition structure.
+     *
+     * This method is used by Parser::redclothLists() to process
+     * found definition list structures.
+     *
+     * @param  array  $m
+     * @return string HTML definition list
+     * @see    Parser::redclothLists()
+     */
     protected function fRedclothList($m)
     {
         $in = $m[0];
