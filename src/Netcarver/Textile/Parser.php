@@ -1150,7 +1150,10 @@ class Parser
 
 
     /**
-     * Checks whether the text has text not already enclosed by a block tag
+     * Checks whether the text is not enclosed by a block tag.
+     *
+     * @param  string $text The input string
+     * @return bool   TRUE if the text is not enclosed
      */
     protected function hasRawText($text)
     {
