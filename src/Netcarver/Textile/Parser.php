@@ -1164,7 +1164,7 @@ class Parser
 
 
     /**
-     * Converts a textile table structure into HTML.
+     * Converts textile table structures into HTML.
      *
      * @param  string $text The textile input
      * @return string The text with tables replaced with HTML tables
@@ -1176,6 +1176,16 @@ class Parser
     }
 
 
+    /**
+     * Constructs a HTML table from a textile table structure.
+     *
+     * This method is used by Parser::tables() to process
+     * found table structures.
+     *
+     * @param  array  $matches
+     * @return string HTML table
+     * @see    Parser::tables()
+     */
     protected function fTable($matches)
     {
         $tatts = $this->parseAttribs($matches[1], 'table');
