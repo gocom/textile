@@ -314,6 +314,13 @@ Ordered List Start & Continuation:
 
 namespace Netcarver\Textile;
 
+/**
+ * Textile parser.
+ *
+ * @example
+ * $parser = new Parser();
+ * echo $parser->textileThis('h1. Hello World!');
+ */
 class Parser
 {
     /**
