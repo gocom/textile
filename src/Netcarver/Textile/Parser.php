@@ -1164,10 +1164,10 @@ class Parser
 
 
     /**
-     * Replaces a textile table structure with its HTML version
+     * Converts a textile table structure into HTML.
      *
-     * @param  string $text A block of textile
-     * @return string Text with tables replaced with HTML tables
+     * @param  string $text The textile input
+     * @return string The text with tables replaced with HTML tables
      */
     protected function tables($text)
     {
