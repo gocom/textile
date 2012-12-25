@@ -674,6 +674,9 @@ class Parser
      *
      * @param  string $prefix  The string to prefix all relative image paths with
      * @return object $this
+     * @example
+     * $parser = new Parser();
+     * $parser->setRelativeImagePrefix('http://static.example.com/');
      */
     public function setRelativeImagePrefix($prefix='')
     {
@@ -688,6 +691,9 @@ class Parser
      * This method returns the internal version of this instance of textile.
      *
      * @return string The version number
+     * @example
+     * $parser = new Parser();
+     * echo $parser->getVersion();
      */
     public function getVersion()
     {
@@ -700,6 +706,9 @@ class Parser
      *
      * @param  string $text The text to be encoded
      * @return string The encoded text
+     * @example
+     * $parser = new Parser();
+     * $parser->textileEncode('Some content to encode.');
      */
     public function textileEncode($text)
     {
@@ -720,6 +729,9 @@ class Parser
      * @param  string $rel     Relationship attribute applied to generated links
      * @return string Parsed $text
      * @see    Parser::textileRestricted()
+     * @example
+     * $parser = new Parser();
+     * echo $parser->textileThis('h1. Hello World!');
      */
     public function textileThis($text, $lite = '', $encode = '', $noimage = '', $strict = '', $rel = '')
     {
@@ -756,6 +768,9 @@ class Parser
      * @param  string $rel     Relationship attribute applied to generated links
      * @return string Parsed $text
      * @see    Parser::textileThis()
+     * @example
+     * $parser = new Parser();
+     * echo $parser->textileRestricted('h1. Hello World!');
      */
     public function textileRestricted($text, $lite = 1, $noimage = 1, $rel = 'nofollow')
     {
