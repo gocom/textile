@@ -1284,7 +1284,7 @@ class Parser
 
 
     /**
-     * Parses RedCloth-style definition lists to HTML.
+     * Parses RedCloth-style definition lists into HTML.
      *
      * @param  string $text The textile input
      * @return string The parsed text
@@ -1354,12 +1354,13 @@ class Parser
 
 
     /**
-     * Searches for ordered, un-ordered and definition lists in the textile input and generates HTML lists for them.
-     * The lists are stashed in a cache and a token representing that list is injected into the document, overwriting the textile
-     * source for the list.
+     * Parses textile list structures into HTML.
      *
-     * @param  string $text  Input textile source to parse for lists
-     * @return string Text with lists replaced with tokens
+     * Searches for ordered, un-ordered and definition lists in the
+     * textile input and generates HTML lists for them.
+     *
+     * @param  string $text The textile input
+     * @return string The parsed text
      */
     protected function textileLists($text)
     {
@@ -1367,6 +1368,16 @@ class Parser
     }
 
 
+    /**
+     * Constructs a HTML list from a textile list structure.
+     *
+     * This method is used by Parser::textileLists() to process
+     * found list structures.
+     *
+     * @param  array  $m
+     * @return string HTML list
+     * @see    Parser::textileLists()
+     */
     protected function fTextileList($m)
     {
         $text = preg_split('/\n(?=[*#;:])/m', $m[0]);
