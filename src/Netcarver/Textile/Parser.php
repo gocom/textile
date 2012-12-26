@@ -422,7 +422,10 @@ class Parser
     protected $fn;
 
     /**
-     * ?
+     * Shelved content.
+     *
+     * Stores fragments of the source text that have been parsed
+     * and require no more processing. 
      *
      * @var array
      */
@@ -457,23 +460,39 @@ class Parser
     protected $url_schemes = array();
 
     /**
-     * ?
+     * Patterns for finding glyphs.
+     *
+     * An array of regex patterns used to find text features
+     * such as apostrophes, fractions and em-dashes. Each
+     * entry in this array must have a corresponding entry in
+     * the $glyph_replace array.
      *
      * @var null|array
+     * @see Parser::$glyph_replace
      */
     protected $glyph_search  = null;
 
     /**
-     * ?
+     * Glyph replacements.
+     *
+     * An array of replacements used to insert typographic glyphs
+     * into the text. Each entry must have a corresponding entry in
+     * the $glyph_search array and may refer to values captured in
+     * the corresponding search regex.
      *
      * @var null|array
+     * @see Parser::$glyph_search
      */
     protected $glyph_replace = null;
 
     /**
-     * ?
+     * Indicates whether glyph substitution is required.
+     *
+     * Dirty flag, set by setSymbol(), indicating the parser needs to
+     * rebuild the glyph substitutions before the next parse.
      *
      * @var bool
+     * @see Parser::setSymbol()
      */
     protected $rebuild_glyphs = true;
 
