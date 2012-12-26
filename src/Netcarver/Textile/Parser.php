@@ -2281,6 +2281,15 @@ class Parser
     }
 
 
+    /**
+     * Shelves parsed URLs.
+     *
+     * Stores away a URL fragments that have been parsed
+     * and requires no more processing.
+     *
+     * @param  string $text The URL
+     * @return string The fragment's unique reference ID
+     */
     protected function shelveURL($text)
     {
         if ('' === $text) {
@@ -2436,6 +2445,15 @@ class Parser
     }
 
 
+    /**
+     * Shelves parsed content.
+     *
+     * Stores away a fragment of the source text that have been parsed
+     * and requires no more processing.
+     *
+     * @param  string $val The content
+     * @return string The fragment's unique reference ID
+     */
     protected function shelve($val)
     {
         $i = uniqid(rand()).'z';
