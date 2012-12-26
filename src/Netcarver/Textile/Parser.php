@@ -2105,6 +2105,14 @@ class Parser
     }
 
 
+    /**
+     * Checks whether a component part can be added to a URI.
+     *
+     * @param  array  $mask  An array of allowed component parts
+     * @param  string $name  The component to add
+     * @param  array  $parts An array of existing components to modify
+     * @return bool   TRUE if the component can be added
+     */
     protected function addPart(&$mask, $name, &$parts)
     {
         return (in_array($name, $mask) && isset($parts[$name]) && '' !== $parts[$name]);
