@@ -2563,6 +2563,12 @@ class Parser
     }
 
 
+    /**
+     * Translates alignment tag into corresponding CSS text-align property value.
+     *
+     * @param  string $in The Textile alignment tag
+     * @return string CSS text-align value
+     */
     protected function hAlign($in)
     {
         $vals = array(
@@ -2577,6 +2583,12 @@ class Parser
     }
 
 
+    /**
+     * Translates vertical alignment tag into corresponding CSS vertical-align property value.
+     *
+     * @param  string $in The Textile alignment tag
+     * @return string CSS vertical-align value
+     */
     protected function vAlign($in)
     {
         $vals = array(
